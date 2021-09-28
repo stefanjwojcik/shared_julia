@@ -1,4 +1,5 @@
 
+## Navid Notes: 
 ### compile but not link
  The -I flag points to where the "header files" with extension .h 
  live (usually the "include" directory) 
@@ -59,3 +60,11 @@ g++  -L/home/navid/Software/julia/lib/ embed.o -Wl,-Bstatic,-rpath,/home/navid/S
  julia shared libraries installed on the machine where the final
  executable runs.
 
+## Stefan Notes:
+Project goals: create compiled julia functions that can be loaded from multiple programs without needing Julia installed. Specifically, being able to compile libraries that can be called from R or Python would be ideal. IIUC these will be restricted by operating system as we will not be able to compile for different operating systems. Goal currently is to compile for a Linux OS and a Mac OS. This goal may be based on a complete misunderstanding of the way the world works. 
+
+Use cases include being able to distribute shared library bundles that can then be called by other programs at the typical Julia speed. 
+
+I have been following worked examples at: https://julialang.github.io/PackageCompiler.jl/dev/libs.html. The only one that appears to be fully function is a different repository that compiles for C and Rust: https://github.com/simonbyrne/libcg. 
+
+Added code to build very simple shared library based on the PackageCompiler docs. 
